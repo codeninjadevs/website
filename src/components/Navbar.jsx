@@ -18,9 +18,9 @@ export default function Navbar() {
 							<Link href="/courses">
 								<a className="text-gray-900 text-sm font-semibold">কোর্সগুলো</a>
 							</Link>
-							<Link href="/roadmap">
-								<a className="bg-gray-900 text-white px-3 py-2 ml-5 rounded-md text-sm font-medium">
-									রোডম্যাপ
+							<Link href="/login">
+								<a className="bg-gray-900 text-white px-4 py-2 pb-1 ml-5 rounded-md text-sm font-medium hover:text-white">
+									লগিন
 								</a>
 							</Link>
 						</div>

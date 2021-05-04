@@ -1,5 +1,5 @@
 import SiteLayout from "../components/SiteLayout";
-// import "tailwindcss/tailwind.css";
+import "antd/dist/antd.css";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
