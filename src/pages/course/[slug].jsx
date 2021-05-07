@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { Collapse, List, Avatar } from "antd";
+import Link from "next/link";
+import { Collapse, List } from "antd";
 import courseData from "../../data/courses";
 import accordionData from "../../data/accordionData";
 
@@ -40,15 +41,13 @@ export default function CourseDetail() {
 											renderItem={(item) => (
 												<List.Item>
 													<div className="flex items-center">
-														<img
-															src={
-																item.type === "video"
-																	? "/img/play-button.png"
-																	: "/img/docs.png"
-															}
-															alt="video"
-															className="w-4 h-4 mr-3"
-														/>
+														<span className="mr-2 text-lg">
+															{item.type === "video" ? (
+																<i className="fas fa-play-circle"></i>
+															) : (
+																<i className="far fa-file-alt ml-0.5"></i>
+															)}
+														</span>
 														{item.title}
 													</div>
 												</List.Item>
@@ -60,9 +59,11 @@ export default function CourseDetail() {
 						</div>
 						<div className="col-span-4 relative">
 							<div className="absolute -top-36 w-full">
-								<button className="w-full py-3 font-semibold bg-white rounded-sm focus:outline-none">
-									কোর্সটি শুরু করুন
-								</button>
+								<Link href={"/lessons/" + slug}>
+									<a className="w-full block text-center py-3 font-semibold bg-white rounded-sm focus:outline-none">
+										কোর্সটি শুরু করুন
+									</a>
+								</Link>
 								<div className="p-5 mt-5 bg-white rounded-sm shadow">
 									<h3 className="font-semibold text-xl">
 										এই কোর্স থেকে যা শিখতে পারবেন
