@@ -16,7 +16,10 @@ export default function NavbarLessons() {
 
 	return (
 		<>
-			<nav className="bg-gray-800 text-white shadow nav-lessons">
+			<nav
+				className="bg-gray-800 text-white shadow-md nav-lessons fixed w-full"
+				style={{ zIndex: 999 }}
+			>
 				<div className="mx-auto px-2 sm:px-6 lg:px-8">
 					<div className="flex items-center justify-between py-3">
 						<div className="flex items-center justify-between">

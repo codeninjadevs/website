@@ -5,7 +5,7 @@ export default function CourseCard({ title, slug, thumbnail }) {
 	return (
 		<>
 			<div className="shadow rounded-lg p-3" key={slug}>
-				<Link href={"course/" + slug}>
+				<Link href={"/course/" + slug}>
 					<a>
 						<img src={thumbnail} alt={title} className="rounded" />
 						<h3 className="mt-4 font-semibold inline-block">

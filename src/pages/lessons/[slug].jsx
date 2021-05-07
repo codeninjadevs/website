@@ -9,12 +9,6 @@ import accordionData from "../../data/accordionData";
 const { Panel } = Collapse;
 const { TabPane } = Tabs;
 
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
 export default function Lessons() {
 	const [course, setCourse] = useState({});
 	const router = useRouter();
@@ -23,7 +17,7 @@ export default function Lessons() {
 	return (
 		<div className="lessons-page">
 			<NavbarLessons />
-			<div className="grid grid-cols-11 gap-5 px-5 pt-5">
+			<div className="grid grid-cols-11 gap-5 px-5" style={{ paddingTop: 85 }}>
 				<div className="col-span-8">
 					<div className="overflow-hidden">
 						<EmbedYoutube embedId="W6NZfCO5SIk" />
@@ -73,14 +67,14 @@ export default function Lessons() {
 						tabBarStyle={{ color: "black" }}
 						onChange={() => {}}
 					>
-						<TabPane tab="ওভারভিউ" key="overview">
+						<TabPane tab="এক নজরে" key="overview">
 							এটা ওভারভিউ এরিয়া
 						</TabPane>
-						<TabPane tab="নোট" key="notes">
-							এটা নোট এরিয়া। এখানো নোট লিখতে পারবেন
+						<TabPane tab="টীকা" key="notes">
+							এটা টীকা এরিয়া। এখানো টীকা লিখতে পারবেন
 						</TabPane>
-						<TabPane tab="কমেন্ট" key="comments">
-							এটা কমেন্ট এরিয়া। এখানে প্রশ্ন জিজ্ঞেস করতে পারবেন
+						<TabPane tab="আলোচনা" key="discussion">
+							এটা আলোচনা করার এরিয়া। এখানে প্রশ্ন জিজ্ঞেস করতে পারবেন
 						</TabPane>
 					</Tabs>
 				</div>
@@ -96,6 +90,10 @@ export default function Lessons() {
 					background: white;
 					border: 0px;
 					border-radius: 2px;
+				}
+
+				.lessons-page .ant-collapse-item {
+					background: white !important;
 				}
 				
 				.lessons-page .ant-tabs-tab-btn {
