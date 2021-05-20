@@ -23,7 +23,7 @@ export default function NavbarLessons() {
 				<div className="mx-auto px-2 sm:px-6 lg:px-8">
 					<div className="flex items-center justify-between py-3">
 						<div className="flex items-center justify-between">
-							<Link href="/">
+							<Link href="/courses">
 								<a className="text-white hover:text-white text-xl mr-5 pt-0.5">
 									{/* <i className="fas fa-caret-square-left"></i> */}
 									{/* <i className="fas fa-arrow-left"></i> */}

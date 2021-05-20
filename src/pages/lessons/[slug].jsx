@@ -16,7 +16,6 @@ export default function Lessons() {
 
 	return (
 		<div className="lessons-page">
-			<NavbarLessons />
 			<div className="grid grid-cols-11 gap-5 px-5" style={{ paddingTop: 85 }}>
 				<div className="col-span-8">
 					<div className="overflow-hidden">
@@ -80,34 +79,34 @@ export default function Lessons() {
 				</div>
 			</div>
 			<style>{`
-				nav.primary {
-					display: none;
-				}
+		nav.primary {
+			display: none;
+		}
 
-				.lessons-page [data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
-				.site-collapse-custom-collapse .site-collapse-custom-panel {
-					overflow: hidden;
-					background: white;
-					border: 0px;
-					border-radius: 2px;
-				}
+		.lessons-page [data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
+		.site-collapse-custom-collapse .site-collapse-custom-panel {
+			overflow: hidden;
+			background: white;
+			border: 0px;
+			border-radius: 2px;
+		}
 
-				.lessons-page .ant-collapse-item {
-					background: white !important;
-				}
-				
-				.lessons-page .ant-tabs-tab-btn {
-					color: black !important;
-				}
-				
-				.lessons-page .ant-tabs-tab-btn:hover {
-					color: black !important;
-				}
-				
-				.lessons-page .ant-tabs-ink-bar {
-					background: black !important;
-				}
-			`}</style>
+		.lessons-page .ant-collapse-item {
+			background: white !important;
+		}
+		
+		.lessons-page .ant-tabs-tab-btn {
+			color: black !important;
+		}
+		
+		.lessons-page .ant-tabs-tab-btn:hover {
+			color: black !important;
+		}
+		
+		.lessons-page .ant-tabs-ink-bar {
+			background: black !important;
+		}
+	`}</style>
 
 			<style jsx>{`
 				.course-content {

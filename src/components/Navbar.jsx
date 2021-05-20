@@ -1,7 +1,18 @@
 import React from "react";
 import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/client";
 
 export default function Navbar() {
+	const [session, loading] = useSession();
+
+	const handleLoginLogout = () => {
+		if (session) {
+			signOut();
+		} else {
+			signIn();
+		}
+	};
+
 	return (
 		<nav
 			className="bg-gray-50 shadow primary fixed w-full"
@@ -21,11 +32,12 @@ export default function Navbar() {
 							<Link href="/courses">
 								<a className="text-gray-900 text-sm font-semibold">কোর্সগুলো</a>
 							</Link>
-							<Link href="/login">
-								<a className="bg-gray-900 text-white px-4 py-2 pb-1 ml-5 rounded-md text-sm font-medium hover:text-white">
-									লগিন
-								</a>
-							</Link>
+							<button
+								className="bg-gray-900 text-white px-4 py-2 pb-1 ml-5 rounded-md text-sm font-medium hover:text-white focus:outline-none"
+								onClick={handleLoginLogout}
+							>
+								{session ? "লগআউট" : "লগিন"}
+							</button>
 						</div>
 					</div>
 				</div>
