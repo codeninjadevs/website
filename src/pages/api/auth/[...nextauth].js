@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
+import { dbConnect } from "../../../lib/database";
+import { CustomUser } from "../../models/user";
 
 export default NextAuth({
 	providers: [
@@ -7,10 +9,6 @@ export default NextAuth({
 			clientId: process.env.GITHUB_ID,
 			clientSecret: process.env.GITHUB_SECRET,
 		}),
-		// Providers.Google({
-		// 	clientId: process.env.GOOGLE_ID,
-		// 	clientSecret: process.env.GOOGLE_SECRET,
-		// }),
 	],
 	pages: {
 		signIn: "/login",
@@ -19,5 +17,33 @@ export default NextAuth({
 		verifyRequest: "/auth/verify-request",
 		newUser: null,
 	},
-	// database: process.env.DATABASE_URL,
+	callbacks: {
+		async jwt(token, user, account, profile, isNewUser) {
+			if (user && profile) {
+				dbConnect();
+				let existingUser = await CustomUser.findOne({ email: user.email });
+
+				if (existingUser === null) {
+					let newUser = new CustomUser({
+						name: user.name,
+						email: user.email,
+						username: profile.login,
+						avatar: user.image,
+						role: "user",
+					});
+
+					await newUser.save();
+				}
+
+				token.role = existingUser?.role || "user";
+			}
+
+			return token;
+		},
+
+		async session(session, token) {
+			session.user.role = token.role;
+			return session;
+		},
+	},
 });
