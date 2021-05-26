@@ -21,13 +21,13 @@ export default NextAuth({
 		async jwt(token, user, account, profile, isNewUser) {
 			if (user && profile) {
 				dbConnect();
-				let existingUser = await CustomUser.findOne({ email: user.email });
-
+				let existingUser = await CustomUser.findOne({ githubId: user.id });
 				if (existingUser === null) {
 					let newUser = new CustomUser({
 						name: user.name,
 						email: user.email,
 						username: profile.login,
+						githubId: user.id,
 						avatar: user.image,
 						role: "user",
 					});

@@ -10,9 +10,6 @@ const withCustomAuth =
 		const [session, loading] = useSession();
 		const router = useRouter();
 
-		console.log("session is", session);
-		console.log("permitted roles are", permittedRoles);
-
 		if (loading) {
 			return (
 				<div

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/client";
 import { Layout, Menu } from "antd";
 import {
 	DesktopOutlined,
@@ -13,6 +14,13 @@ const { Header, Content, Sider } = Layout;
 
 function AdminLayout({ children }) {
 	const [isCollapsed, setIsCollapsed] = useState(false);
+	const [session, loading] = useSession();
+
+	const handleLogout = () => {
+		if (session) {
+			signOut();
+		}
+	};
 
 	return (
 		<div className="admin">
@@ -29,7 +37,9 @@ function AdminLayout({ children }) {
 					</div>
 					<Menu theme="dark" mode="horizontal" style={{ textAlign: "right" }}>
 						<Menu.Item key="2">Account</Menu.Item>
-						<Menu.Item key="3">Logout</Menu.Item>
+						<Menu.Item key="3" onClick={handleLogout}>
+							Logout
+						</Menu.Item>
 					</Menu>
 				</Header>
 				<Layout>

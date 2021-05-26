@@ -10,6 +10,4 @@ export function dbConnect() {
 			}
 		);
 	}
-
-	console.log("db connect successfull");
 }
