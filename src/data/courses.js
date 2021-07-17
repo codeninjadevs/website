@@ -74,3 +74,10 @@ let courseData = [
 ];
 
 export default courseData;
+
+export const outcomes = [
+	"HTML ট্যাগ",
+	"HTML এট্রিবিউট",
+	"ছবি যুক্ত করা",
+	"লাইভ সাইটে ডিপ্লয় করা",
+];

@@ -11,3 +11,11 @@ a,
 a:hover {
     color: inherit;
 }
+
+.anticon svg {
+    display: block !important;
+}
+
+button:focus {
+    outline: none;
+}
