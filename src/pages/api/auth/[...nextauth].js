@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
-import { dbConnect } from "../../../lib/database";
+import { dbConnect } from "../../../utils/database";
 import { CustomUser } from "../../../models/user";
 
 export default NextAuth({

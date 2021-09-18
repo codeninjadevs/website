@@ -1,7 +1,7 @@
 import React from "react";
 import { getProviders, getSession, signIn, useSession } from "next-auth/client";
 import { Spin } from "antd";
-import { outlinedSpinner } from "../components/Spinners";
+import { outlinedSpinner } from "../components/lib/Spinners";
 
 export default function Login({ providers }) {
 	const [session, loading] = useSession();

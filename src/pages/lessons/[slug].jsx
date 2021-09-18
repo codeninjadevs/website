@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Collapse, List, Tabs } from "antd";
 import { CaretRightOutlined } from "@ant-design/icons";
-import NavbarLessons from "../../components/NavbarLessons";
-import EmbedYoutube from "../../components/EmbedYoutube";
+import EmbedYoutube from "../../components/lib/EmbedYoutube";
 import accordionData from "../../data/accordionData";
 
 const { Panel } = Collapse;

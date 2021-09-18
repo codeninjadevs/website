@@ -21,10 +21,10 @@ import {
 	SettingOutlined,
 	CaretRightOutlined,
 } from "@ant-design/icons";
-import CourseOutcome from "../Administrator/CourseOutcome";
-import CourseModule from "../Administrator/CourseModule";
-import { outcomes } from "../../data/courses";
-import accordionData from "../../data/accordionData";
+import CourseOutcome from "../../Administrator/CourseOutcome";
+import CourseModule from "../../Administrator/CourseModule";
+import { outcomes } from "../../../data/courses";
+import accordionData from "../../../data/accordionData";
 
 const { Step } = Steps;
 const { Option } = Select;

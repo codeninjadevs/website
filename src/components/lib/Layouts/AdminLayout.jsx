@@ -8,7 +8,7 @@ import {
 	PieChartOutlined,
 	SettingOutlined,
 } from "@ant-design/icons";
-import withCustomAuth from "./withCustomAuth";
+import withCustomAuth from "../../hoc/withCustomAuth";
 
 const { Header, Content, Sider } = Layout;
 

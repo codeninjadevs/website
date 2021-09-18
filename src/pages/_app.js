@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { Provider } from "next-auth/client";
-import SiteLayout from "../components/SiteLayout";
-import LessonsLayout from "../components/LessonsLayout";
-import AdminLayout from "../components/AdminLayout";
+import SiteLayout from "../components/lib/Layouts/SiteLayout";
+import LessonsLayout from "../components/lib/Layouts/LessonsLayout";
+import AdminLayout from "../components/lib/Layouts/AdminLayout";
 import "antd/dist/antd.css";
 import "../styles/globals.css";
 

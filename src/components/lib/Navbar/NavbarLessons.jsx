@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Progress } from "antd";
-import courseData from "../data/courses";
+import courseData from "../../../data/courses";
 
 export default function NavbarLessons() {
 	const [course, setCourse] = useState({});

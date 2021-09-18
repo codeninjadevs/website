@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import NavbarLessons from "./NavbarLessons";
-import withAuth from "./withAuth";
+import NavbarLessons from "../Navbar/NavbarLessons";
+import withAuth from "../../hoc/withAuth";
 
 function LessonsLayout({ children }) {
 	const router = useRouter();

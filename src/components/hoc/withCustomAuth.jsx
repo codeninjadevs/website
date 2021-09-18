@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/client";
 import { Spin } from "antd";
-import { outlinedSpinner } from "./Spinners";
+import { outlinedSpinner } from "../lib/Spinners";
 
 const withCustomAuth =
 	(Component, { permittedRoles }) =>
