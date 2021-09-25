@@ -19,3 +19,7 @@ a:hover {
 button:focus {
     outline: none;
 }
+
+.course-spinner {
+    height: calc(100vh - 100px);
+}

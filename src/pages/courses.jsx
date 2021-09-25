@@ -1,17 +1,28 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import CourseCard from "../components/lib/CourseCard";
-import courses from "../data/courses";
 
 export default function Courses() {
+	const [courses, setCourses] = useState();
+
+	useEffect(() => {
+		(async () => {
+			const tempCourses = (await axios.get("/api/courses"))?.data;
+			if (tempCourses) setCourses(tempCourses);
+		})();
+	}, []);
+
 	return (
 		<div>
 			<section className="py-5">
 				<div className="container">
-					<div className="grid grid-cols-4 gap-x-5 gap-y-6">
-						{courses.map((course, idx) => (
-							<CourseCard key={idx} {...course} />
-						))}
-					</div>
+					{courses ? (
+						<div className="grid grid-cols-4 gap-x-5 gap-y-6">
+							{courses.map((course, idx) => (
+								<CourseCard key={idx} {...course} />
+							))}
+						</div>
+					) : null}
 				</div>
 			</section>
 		</div>

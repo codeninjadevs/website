@@ -5,7 +5,8 @@ let courseData = [
 			"ওয়েব পেইজের গঠন তৈরী করার জন্য বহুল ব্যবহৃত ল্যাঙ্গুয়েজ HTML.",
 		slug: "html",
 		thumbnail:
-			"https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2018/11/what-is-html-1.jpg",
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/html_zwario.jpg",
+		themeColor: "#ef6026",
 	},
 	{
 		title: "CSS - ক্যাসক্যাডিং স্টাইলশিট",
@@ -13,7 +14,8 @@ let courseData = [
 			"ওয়েবসাইটকে সুন্দর ও ব্যবহার উপযোগী করার জন্য CSS ব্যবহৃত হয়ে থাকে। CSS শিখে সহজেই আপনি আপনার পছন্দের ডিজাইনের ওয়েবসাইট তৈরী করে ফেলতে পারবেন।",
 		slug: "css",
 		thumbnail:
-			"https://www.bitdegree.org/learn/storage/media/images/css-tutorial-img1-01.o.png",
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/css_muqd8p.png",
+		themeColor: "#25a1e1",
 	},
 	{
 		title: "Javascript - জাভাস্ক্রিপ্ট",
@@ -21,55 +23,58 @@ let courseData = [
 			"ওয়েবসাইটকে ইন্টারএ্যাক্টিভ করে তুলতে জাভাস্ক্রিপ্ট এর তুলনা হয় না। জনপ্রিয় এই ল্যাঙ্গুয়েজ টি দিয়ে ওয়েবসাইটের ব্যবহার উপযোগীতা বাড়ানোর সাথে সাথে ডায়নামিক কন্টেন্ট জেনারেট করতে পারবেন।",
 		slug: "javascript",
 		thumbnail:
-			"https://res.cloudinary.com/practicaldev/image/fetch/s--ohpJlve1--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://res.cloudinary.com/drquzbncy/image/upload/v1586605549/javascript_banner_sxve2l.jpg",
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/js_ojp4sl.jpg",
+		themeColor: "#efd81d",
 	},
 	{
-		title: "Bootstrap - বুটস্ট্র্যাপ",
-		description: "",
-		slug: "bootstrap",
+		title: "Tailwind CSS - টেইলউইন্ড সিএসএস",
+		description:
+			"ওয়েবসাইটকে সুন্দর ও ব্যবহার উপযোগী করার জন্য CSS ব্যবহৃত হয়ে থাকে। CSS শিখে সহজেই আপনি আপনার পছন্দের ডিজাইনের ওয়েবসাইট তৈরী করে ফেলতে পারবেন।",
+		slug: "tailwindcss",
 		thumbnail:
-			"https://uploads.toptal.io/blog/image/125554/toptal-blog-image-1520247930247-50c6aa937ebcb5ff2ef941c189767e6b.png",
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603755/tailwindcss_ppxqgv.png",
 		status: "upcoming",
-	},
-	{
-		title: "jQuery - জেকুয়েরি",
-		description: "",
-		slug: "jquery",
-		thumbnail:
-			"https://rockcontent.com/wp-content/uploads/2021/02/stage-en-add-jquery-scripts-to-wordpress.png",
-		status: "upcoming",
+		themeColor: "#06b6d4",
 	},
 	{
 		title: "React.JS - রিয়্যাক্ট জেএস",
-		description: "",
+		description:
+			"ওয়েবসাইটকে সুন্দর ও ব্যবহার উপযোগী করার জন্য CSS ব্যবহৃত হয়ে থাকে। CSS শিখে সহজেই আপনি আপনার পছন্দের ডিজাইনের ওয়েবসাইট তৈরী করে ফেলতে পারবেন।",
 		slug: "react-js",
 		thumbnail:
-			"https://www.codingninjas.com/blog/wp-content/uploads/2020/05/React-Interview-Essentials.png",
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603755/reactjs_qxnrtz.png",
 		status: "upcoming",
+		themeColor: "#5ed3f3",
 	},
 	{
 		title: "Node.JS - নোড জেএস",
-		description: "",
+		description:
+			"ওয়েবসাইটকে সুন্দর ও ব্যবহার উপযোগী করার জন্য CSS ব্যবহৃত হয়ে থাকে। CSS শিখে সহজেই আপনি আপনার পছন্দের ডিজাইনের ওয়েবসাইট তৈরী করে ফেলতে পারবেন।",
 		slug: "node-js",
 		thumbnail:
-			"https://buddy.works/guides/covers/test-nodejs-app/share-nodejs-logo.png",
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603755/nodejs_vvamxg.png",
 		status: "upcoming",
+		themeColor: "#3c873a",
 	},
 	{
 		title: "Express.JS - এক্সপ্রেস জেএস",
-		description: "",
+		description:
+			"ওয়েবসাইটকে সুন্দর ও ব্যবহার উপযোগী করার জন্য CSS ব্যবহৃত হয়ে থাকে। CSS শিখে সহজেই আপনি আপনার পছন্দের ডিজাইনের ওয়েবসাইট তৈরী করে ফেলতে পারবেন।",
 		slug: "express-js",
 		thumbnail:
-			"https://storage.googleapis.com/hackersandslackers-cdn/2017/11/expressjs.jpg",
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/expressjs_dbmui6.jpg",
 		status: "upcoming",
+		themeColor: "#424ca1",
 	},
 	{
 		title: "MongoDB - মঙ্গোডিবি",
-		description: "",
+		description:
+			"ওয়েবসাইটকে সুন্দর ও ব্যবহার উপযোগী করার জন্য CSS ব্যবহৃত হয়ে থাকে। CSS শিখে সহজেই আপনি আপনার পছন্দের ডিজাইনের ওয়েবসাইট তৈরী করে ফেলতে পারবেন।",
 		slug: "mongodb",
 		thumbnail:
-			"https://www.applozic.com/blog/wp-content/uploads/2019/05/1906852_93c6.jpg",
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/mongodb_fagatj.jpg",
 		status: "upcoming",
+		themeColor: "#12a54f",
 	},
 ];
 

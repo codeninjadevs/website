@@ -1,30 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { Collapse, List, Skeleton } from "antd";
+import axios from "axios";
 import Link from "next/link";
-import { Collapse, List } from "antd";
-import courseData from "../../data/courses";
+import React, { useState } from "react";
 import accordionData from "../../data/accordionData";
+import { getCourseBySlug } from "../api/courses/[slug]";
 
 const { Panel } = Collapse;
 
-export default function CourseDetail() {
-	const [course, setCourse] = useState({});
-	const router = useRouter();
-	const { slug } = router.query;
-
-	useEffect(() => {
-		setCourse(courseData.find((course) => course.slug === slug));
-	}, []);
-
+export default function CourseDetail({ course }) {
 	return (
 		<div className="course-detail-page">
-			<section className="h-72 py-10 bg-blue-400">
+			<section
+				className="h-72 py-10"
+				style={{
+					backgroundColor: course?.themeColor ?? "#60a5fa",
+				}}
+			>
 				<div className="container">
 					<div className="w-8/12 text-white">
-						<h2 className="font-semibold text-4xl text-white">
-							{course?.title}
-						</h2>
-						<p className="mt-4">{course?.description}</p>
+						{course ? (
+							<>
+								<h2 className="font-semibold text-4xl text-white">
+									{course.title}
+								</h2>
+								<p className="mt-4">{course.description}</p>
+							</>
+						) : (
+							<Skeleton />
+						)}
 					</div>
 				</div>
 			</section>
@@ -32,34 +35,38 @@ export default function CourseDetail() {
 				<div className="container">
 					<div className="grid grid-cols-12 gap-10">
 						<div className="col-span-8">
-							<Collapse defaultActiveKey={["1"]} onChange={() => {}}>
-								{accordionData.map((item, idx) => (
-									<Panel header={item.header} key={idx + 1}>
-										<List
-											size="small"
-											dataSource={item.contents}
-											renderItem={(item) => (
-												<List.Item>
-													<div className="flex items-center">
-														<span className="mr-2 text-lg">
-															{item.type === "video" ? (
-																<i className="fas fa-play-circle"></i>
-															) : (
-																<i className="far fa-file-alt ml-0.5"></i>
-															)}
-														</span>
-														{item.title}
-													</div>
-												</List.Item>
-											)}
-										/>
-									</Panel>
-								))}
-							</Collapse>
+							{course ? (
+								<Collapse defaultActiveKey={["1"]} onChange={() => {}}>
+									{accordionData.map((item, idx) => (
+										<Panel header={item.header} key={idx + 1}>
+											<List
+												size="small"
+												dataSource={item.contents}
+												renderItem={(item) => (
+													<List.Item>
+														<div className="flex items-center">
+															<span className="mr-2 text-lg">
+																{item.type === "video" ? (
+																	<i className="fas fa-play-circle"></i>
+																) : (
+																	<i className="far fa-file-alt ml-0.5"></i>
+																)}
+															</span>
+															{item.title}
+														</div>
+													</List.Item>
+												)}
+											/>
+										</Panel>
+									))}
+								</Collapse>
+							) : (
+								<Skeleton />
+							)}
 						</div>
 						<div className="col-span-4 relative">
 							<div className="absolute -top-36 w-full">
-								<Link href={"/lessons/" + slug}>
+								<Link href={"/lessons/" + course?.slug}>
 									<a className="w-full block text-center py-3 font-semibold bg-white rounded-sm focus:outline-none">
 										কোর্সটি শুরু করুন
 									</a>
@@ -68,12 +75,16 @@ export default function CourseDetail() {
 									<h3 className="font-semibold text-xl">
 										এই কোর্স থেকে যা শিখতে পারবেন
 									</h3>
-									<ul className="list-disc ml-6 mt-2">
-										<li>HTML ট্যাগ</li>
-										<li>HTML এট্রিবিউট</li>
-										<li>ছবি যুক্ত করা</li>
-										<li>লাইভ সাইটে ডিপ্লয় করা</li>
-									</ul>
+									{course ? (
+										<ul className="list-disc ml-6 mt-2">
+											<li>HTML ট্যাগ</li>
+											<li>HTML এট্রিবিউট</li>
+											<li>ছবি যুক্ত করা</li>
+											<li>লাইভ সাইটে ডিপ্লয় করা</li>
+										</ul>
+									) : (
+										<Skeleton title={false} className="mt-6" />
+									)}
 								</div>
 							</div>
 						</div>
@@ -87,4 +98,10 @@ export default function CourseDetail() {
 			`}</style>
 		</div>
 	);
+}
+
+export async function getServerSideProps({ query }) {
+	const course = getCourseBySlug(query.slug);
+
+	return { props: { course } };
 }
