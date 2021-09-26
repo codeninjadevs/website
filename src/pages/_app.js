@@ -35,6 +35,7 @@ function MyApp({ Component, pageProps }) {
 				color="#3a91e5"
 				progress={progress}
 				transitionTime={10}
+				waitingTime={400}
 				onLoaderFinished={() => setProgress(0)}
 			/>
 			{router.route.startsWith("/lessons/") ? (

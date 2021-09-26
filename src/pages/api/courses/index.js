@@ -7,6 +7,6 @@ export default (req, res) => {
 	}
 };
 
-const getCourses = () => {
+export const getCourses = () => {
 	return courseData;
 };

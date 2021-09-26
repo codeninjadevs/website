@@ -37,22 +37,22 @@ export default function CourseDetail({ course }) {
 						<div className="col-span-8">
 							{course ? (
 								<Collapse defaultActiveKey={["1"]} onChange={() => {}}>
-									{accordionData.map((item, idx) => (
-										<Panel header={item.header} key={idx + 1}>
+									{course.modules.map((module, idx) => (
+										<Panel header={module.title} key={idx + 1}>
 											<List
 												size="small"
-												dataSource={item.contents}
-												renderItem={(item) => (
+												dataSource={module.lessons}
+												renderItem={(lesson) => (
 													<List.Item>
 														<div className="flex items-center">
 															<span className="mr-2 text-lg">
-																{item.type === "video" ? (
+																{lesson.type === "video" ? (
 																	<i className="fas fa-play-circle"></i>
 																) : (
 																	<i className="far fa-file-alt ml-0.5"></i>
 																)}
 															</span>
-															{item.title}
+															{lesson.title}
 														</div>
 													</List.Item>
 												)}
@@ -66,11 +66,13 @@ export default function CourseDetail({ course }) {
 						</div>
 						<div className="col-span-4 relative">
 							<div className="absolute -top-36 w-full">
-								<Link href={"/lessons/" + course?.slug}>
-									<a className="w-full block text-center py-3 font-semibold bg-white rounded-sm focus:outline-none">
-										কোর্সটি শুরু করুন
-									</a>
-								</Link>
+								{course.status === "published" ? (
+									<Link href={"/lessons/" + course?.slug}>
+										<a className="w-full block text-center py-3 font-semibold bg-white rounded-sm focus:outline-none">
+											কোর্সটি শুরু করুন
+										</a>
+									</Link>
+								) : null}
 								<div className="p-5 mt-5 bg-white rounded-sm shadow">
 									<h3 className="font-semibold text-xl">
 										এই কোর্স থেকে যা শিখতে পারবেন
