@@ -36,7 +36,12 @@ export default function CourseDetail({ course }) {
 					<div className="grid grid-cols-12 gap-10">
 						<div className="col-span-8">
 							{course ? (
-								<Collapse defaultActiveKey={["1"]} onChange={() => {}}>
+								<Collapse
+									defaultActiveKey={[
+										...Array(course.modules.length + 1).keys(),
+									]}
+									onChange={() => {}}
+								>
 									{course.modules.map((module, idx) => (
 										<Panel header={module.title} key={idx + 1}>
 											<List
