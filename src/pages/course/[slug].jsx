@@ -84,10 +84,9 @@ export default function CourseDetail({ course }) {
 									</h3>
 									{course ? (
 										<ul className="list-disc ml-6 mt-2">
-											<li>HTML ট্যাগ</li>
-											<li>HTML এট্রিবিউট</li>
-											<li>ছবি যুক্ত করা</li>
-											<li>লাইভ সাইটে ডিপ্লয় করা</li>
+											{course.outcomes.map((outcome) => (
+												<li>{outcome}</li>
+											))}
 										</ul>
 									) : (
 										<Skeleton title={false} className="mt-6" />

@@ -61,6 +61,7 @@ let courseData = [
 				],
 			},
 		],
+		outcomes: ["ওয়েব পেইজের কাঠামো তৈরী", "লাইভ সাইট ডিপ্লয় করা"],
 	},
 	{
 		title: "CSS - ক্যাসক্যাডিং স্টাইলশিট",
@@ -123,6 +124,11 @@ let courseData = [
 				title: "CSS রেসপন্সিভ",
 				lessons: [{ title: "মিডিয়া কুয়েরি", type: "video" }],
 			},
+		],
+		outcomes: [
+			"ডিজাইন ও এ্যানিমেশন",
+			"রেসপন্সিভ ওয়েবসাইট তৈরী",
+			"নিজের একটি পোর্টফোলিও সাইট",
 		],
 	},
 	{
@@ -188,6 +194,10 @@ let courseData = [
 				],
 			},
 		],
+		outcomes: [
+			"প্রোগ্রামিং করে লজিক তৈরী",
+			"ব্রাউজারের বিভিন্ন এপিআই সম্পর্কে জানা",
+		],
 	},
 	{
 		title: "Tailwind CSS - টেইলউইন্ড সিএসএস",
@@ -239,6 +249,7 @@ let courseData = [
 				],
 			},
 		],
+		outcomes: ["সহজ ও কম সময়ে ওয়েব ডিজাইন করা", "রেসপন্সিভ ওয়েবসাইট তৈরী করা"],
 	},
 	{
 		title: "React.JS - রিয়্যাক্ট জেএস",
@@ -253,36 +264,54 @@ let courseData = [
 			{
 				title: "কোর্স পরিচিতি",
 				lessons: [
-					{ title: "ওয়েব যেভাবে কাজ করে", type: "video" },
-					{ title: "আমরা যা যা শিখবো", type: "video" },
+					{ title: "সিঙ্গেল পেজ এ্যাপ্লিকেশন কি এবং কেনো", type: "video" },
+					{ title: "আমরা যা শিখবো", type: "video" },
 					{ title: "প্রয়োজনীয় টুলস গুলো", type: "video" },
+					{ title: "ইনস্টলেশন ও সেটাপ", type: "video" },
 				],
 			},
 			{
-				title: "HTML সিনট্যাক্স",
+				title: "সিনট্যাক্স",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "কম্পোনেন্ট", type: "video" },
+					{ title: "JSX", type: "video" },
+					{ title: "State ও Props", type: "video" },
+					{ title: "মডিউলস", type: "video" },
 				],
 			},
 			{
-				title: "HTML ফর্ম",
+				title: "অত্যাবশ্যকীয়",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "কন্ডিশনাল রেন্ডারিং", type: "video" },
+					{ title: "ইভেন্ট হ্যান্ডেল করা", type: "video" },
+					{ title: "লিস্ট", type: "video" },
+					{ title: "ফর্ম", type: "video" },
+					{ title: "কম্পোনেন্ট জীবনচক্র", type: "video" },
+					{ title: "হুক", type: "video" },
+					{ title: "Higher order component", type: "video" },
 				],
 			},
 			{
-				title: "HTML এপিআই",
+				title: "অন্যান্য",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "কম্পোনেন্ট স্টাইল করা", type: "video" },
+					{ title: "কম্পোজিশন", type: "video" },
+					{ title: "Fragments", type: "video" },
+					{ title: "কোড স্প্লিটিং", type: "video" },
+				],
+			},
+			{
+				title: "React ইকোসিস্টেম",
+				lessons: [
+					{ title: "React Router", type: "video" },
+					{ title: "Styled Components", type: "video" },
+					{ title: "React Redux", type: "video" },
+					{ title: "Ant Design", type: "video" },
+					{ title: "Enzyme", type: "video" },
 				],
 			},
 		],
+		outcomes: ["REST এপিআই ব্যবহার করা", "লাইভ প্রোজেক্ট তৈরী ও ডিপ্লয়মেন্ট"],
 	},
 	{
 		title: "Node.JS - নোড জেএস",
@@ -297,80 +326,46 @@ let courseData = [
 			{
 				title: "কোর্স পরিচিতি",
 				lessons: [
-					{ title: "ওয়েব যেভাবে কাজ করে", type: "video" },
-					{ title: "আমরা যা যা শিখবো", type: "video" },
+					{ title: "সার্ভার সাইড প্রোগ্রামিং সম্পর্কে", type: "video" },
+					{ title: "আমরা যা শিখবো", type: "video" },
 					{ title: "প্রয়োজনীয় টুলস গুলো", type: "video" },
+					{ title: "ইনস্টলেশন ও সেটাপ", type: "video" },
 				],
 			},
 			{
-				title: "HTML সিনট্যাক্স",
+				title: "প্রাথমিক",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "V8 ইঞ্জিন", type: "video" },
+					{ title: "হ্যালো ওয়ার্ল্ড", type: "video" },
 				],
 			},
 			{
-				title: "HTML ফর্ম",
+				title: "অত্যাবশ্যকীয়",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "ইভেন্ট", type: "video" },
+					{ title: "বাফার ও স্ট্রিম", type: "video" },
 				],
 			},
 			{
-				title: "HTML এপিআই",
+				title: "বিল্ট ইন মডিউল",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "ফাইল সিস্টেম", type: "video" },
+					{ title: "HTTP", type: "video" },
+					{ title: "URL", type: "video" },
+					{ title: "Crypto", type: "video" },
+					{ title: "Path", type: "video" },
+				],
+			},
+			{
+				title: "3rd party মডিউল",
+				lessons: [
+					{ title: "NPM", type: "video" },
+					{ title: "Formidable", type: "video" },
+					{ title: "Nodemailer", type: "video" },
 				],
 			},
 		],
-	},
-	{
-		title: "Express.JS - এক্সপ্রেস জেএস",
-		description:
-			"Node.JS ব্যবহার করে ওয়েব এ্যাপ্লিকেশন তৈরী করার জন্য ছোটো ও minimalist ফ্রেমওয়ার্ক এটি।",
-		slug: "express-js",
-		thumbnail:
-			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/expressjs_dbmui6.jpg",
-		status: "upcoming",
-		themeColor: "#424ca1",
-		modules: [
-			{
-				title: "কোর্স পরিচিতি",
-				lessons: [
-					{ title: "ওয়েব যেভাবে কাজ করে", type: "video" },
-					{ title: "আমরা যা যা শিখবো", type: "video" },
-					{ title: "প্রয়োজনীয় টুলস গুলো", type: "video" },
-				],
-			},
-			{
-				title: "HTML সিনট্যাক্স",
-				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
-				],
-			},
-			{
-				title: "HTML ফর্ম",
-				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
-				],
-			},
-			{
-				title: "HTML এপিআই",
-				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
-				],
-			},
-		],
+		outcomes: ["REST এপিআই তৈরী করা", "সার্ভারে ডিপ্লয় করা"],
 	},
 	{
 		title: "MongoDB - মঙ্গোডিবি",
@@ -384,35 +379,119 @@ let courseData = [
 			{
 				title: "কোর্স পরিচিতি",
 				lessons: [
-					{ title: "ওয়েব যেভাবে কাজ করে", type: "video" },
-					{ title: "আমরা যা যা শিখবো", type: "video" },
+					{ title: "ডাটাবেজ কেনো প্রয়োজন হয়", type: "video" },
+					{ title: "আমরা যা শিখবো", type: "video" },
 					{ title: "প্রয়োজনীয় টুলস গুলো", type: "video" },
+					{ title: "ইন্সটলেশন ও সেটাপ", type: "video" },
 				],
 			},
 			{
-				title: "HTML সিনট্যাক্স",
+				title: "প্রাথমিক",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "কালেকশন ও ডকুমেন্ট পরিচিতি", type: "video" },
+					{ title: "ডকুমেন্ট মডেল", type: "video" },
+					{ title: "ডাটাবেজ কানেকশন", type: "video" },
+					{ title: "ডাটা টাইপ", type: "video" },
 				],
 			},
 			{
-				title: "HTML ফর্ম",
+				title: "CRUD অপারেশন",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "ডকুমেন্ট তৈরী", type: "video" },
+					{ title: "ডকুমেন্ট কুয়েরী", type: "video" },
+					{ title: "ডকুমেন্ট আপডেট", type: "video" },
+					{ title: "ডকুমেন্ট মুছে ফেলা", type: "video" },
+					{ title: "Sort, skip, limit", type: "video" },
 				],
 			},
 			{
-				title: "HTML এপিআই",
+				title: "ইনডেক্সিং ও এগ্রিগেশন ফ্রেমওয়ার্ক",
 				lessons: [
-					{ title: "HTML ট্যাগ", type: "video" },
-					{ title: "HTML এ্যাট্রিবিউট", type: "video" },
-					{ title: "ওয়েব পেইজে ছবি যুক্ত করা", type: "video" },
+					{ title: "একাধিক ইনডেক্স তৈরী", type: "video" },
+					{ title: "Geospatial ইনডেক্স", type: "video" },
+					{ title: "এগ্রিগেশন পাইপলাইন", type: "video" },
+					{ title: "পারফর্মেন্স টিউনিং", type: "video" },
 				],
 			},
+			{
+				title: "অন্যান্য",
+				lessons: [
+					{ title: "MongoDB Atlas", type: "video" },
+					{ title: "আর্কিটেকচার", type: "video" },
+					{ title: "সিকিউরিটি", type: "video" },
+					{ title: "কানেকশন পুলিং", type: "video" },
+				],
+			},
+		],
+		outcomes: [
+			"ডাটা মডেলিং",
+			"ডাটা সংরক্ষণ করা",
+			"ডাটা ব্যাকাপ নেয়া",
+			"ওয়েব এ্যাপ্লিকেশনের সাথে ডাটাবেজ ইন্টিগ্রেশন করা",
+		],
+	},
+	{
+		title: "Express.JS - এক্সপ্রেস জেএস",
+		description:
+			"Node.JS ব্যবহার করে ওয়েব এ্যাপ্লিকেশন তৈরী করার জন্য সংক্ষিপ্ত ও minimalist ফ্রেমওয়ার্ক এটি।",
+		slug: "express-js",
+		thumbnail:
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/expressjs_dbmui6.jpg",
+		status: "upcoming",
+		themeColor: "#424ca1",
+		modules: [
+			{
+				title: "কোর্স পরিচিতি",
+				lessons: [
+					{ title: "এক্সপ্রেস.জেএস সম্পর্কে", type: "video" },
+					{ title: "আমরা যা শিখবো", type: "video" },
+					{ title: "প্রয়োজনীয় টুলস গুলো", type: "video" },
+					{ title: "ইন্সটলেশন ও সেটাপ", type: "video" },
+				],
+			},
+			{
+				title: "প্রাথমিক",
+				lessons: [
+					{ title: "বেসিক এপিআই", type: "video" },
+					{ title: "HTTP রিকোয়েস্ট", type: "video" },
+					{ title: "HTTP রেসপন্স", type: "video" },
+					{ title: "স্ট্যাটিক ফাইলস", type: "video" },
+					{ title: "টেমপ্লেট ইঞ্জিন", type: "video" },
+				],
+			},
+			{
+				title: "রাউটিং",
+				lessons: [
+					{ title: "URL প্যারামিটার", type: "video" },
+					{ title: "কুয়েরি প্যারামিটার", type: "video" },
+					{ title: "রাউটার গ্রুপ", type: "video" },
+				],
+			},
+			{
+				title: "Middleware",
+				lessons: [
+					{ title: "Body parser", type: "video" },
+					{ title: "CORS", type: "video" },
+					{ title: "Multer", type: "video" },
+					{ title: "Session", type: "video" },
+					{ title: "নিজস্ব middleware তৈরী", type: "video" },
+				],
+			},
+			{
+				title: "অন্যান্য",
+				lessons: [
+					{ title: "কুকিজ", type: "video" },
+					{ title: "ডাটাবেজ ইন্টিগ্রেশন", type: "video" },
+					{ title: "এ্যাডমিন প্যানেল", type: "video" },
+					{ title: "ফর্ম ডাটা", type: "video" },
+					{ title: "ফাইল আপলোড", type: "video" },
+				],
+			},
+		],
+		outcomes: [
+			"REST এপিআই তৈরী",
+			"টেমপ্লেট রেন্ডার করা",
+			"স্ট্যাটিক ফাইল হোস্ট করা",
 		],
 	},
 ];
