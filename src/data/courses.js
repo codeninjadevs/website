@@ -62,6 +62,7 @@ let courseData = [
 			},
 		],
 		outcomes: ["ওয়েব পেইজের কাঠামো তৈরী", "লাইভ সাইট ডিপ্লয় করা"],
+		outsource: true,
 	},
 	{
 		title: "CSS - ক্যাসক্যাডিং স্টাইলশিট",
@@ -503,4 +504,140 @@ export const outcomes = [
 	"HTML এট্রিবিউট",
 	"ছবি যুক্ত করা",
 	"লাইভ সাইটে ডিপ্লয় করা",
+];
+
+export const enrolledCourses = [
+	{
+		title: "HTML - হাইপারটেক্সট মার্কআপ ল্যাঙ্গুয়েজ",
+		description:
+			"ওয়েব পেইজের গঠন তৈরী করার জন্য বহুল ব্যবহৃত ল্যাঙ্গুয়েজ HTML.",
+		slug: "html",
+		thumbnail:
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/html_zwario.jpg",
+		status: "upcoming",
+		themeColor: "#ef6026",
+		modules: [
+			{
+				title: "কোর্স পরিচিতি",
+				lessons: [
+					{ title: "ওয়েব যেভাবে কাজ করে", type: "video" },
+					{ title: "আমরা যা শিখবো", type: "video" },
+					{ title: "প্রয়োজনীয় টুলস গুলো", type: "video" },
+				],
+			},
+			{
+				title: "HTML সিনট্যাক্স",
+				lessons: [
+					{ title: "ট্যাগ", type: "video" },
+					{ title: "এ্যাট্রিবিউট", type: "video" },
+					{ title: "ইলিমেন্ট", type: "video" },
+					{ title: "কমেন্ট", type: "video" },
+					{ title: "বিশেষ চিহ্ন", type: "video" },
+				],
+			},
+			{
+				title: "ফরম্যাটিং",
+				lessons: [
+					{ title: "হেডিং ও প্যারাগ্রাফ", type: "video" },
+					{
+						title:
+							"বোল্ড, স্ট্রং, ইটালিক, আন্ডারলাইন, স্ট্রাইক, সাবস্ক্রিপ্ট, সুপারস্ক্রিপ্ট",
+						type: "video",
+					},
+					{ title: "নতুন লাইন", type: "video" },
+				],
+			},
+			{
+				title: "অত্যাবশ্যকীয়",
+				lessons: [
+					{ title: "লিংক", type: "video" },
+					{ title: "ছবি", type: "video" },
+					{ title: "লিস্ট", type: "video" },
+					{ title: "টেবিল", type: "video" },
+					{ title: "ফর্ম", type: "video" },
+				],
+			},
+			{
+				title: "সিম্যান্টিক HTML",
+				lessons: [{ title: "পরিচিতি", type: "video" }],
+			},
+			{
+				title: "মিডিয়া",
+				lessons: [
+					{ title: "অডিও", type: "video" },
+					{ title: "ভিডিও", type: "video" },
+				],
+			},
+		],
+		outcomes: ["ওয়েব পেইজের কাঠামো তৈরী", "লাইভ সাইট ডিপ্লয় করা"],
+		outsource: true,
+	},
+	{
+		title: "CSS - ক্যাসক্যাডিং স্টাইলশিট",
+		description:
+			"ওয়েবসাইটকে সুন্দর ও ব্যবহার উপযোগী করার জন্য CSS ব্যবহৃত হয়ে থাকে। CSS শিখে সহজেই আপনি আপনার পছন্দের ডিজাইনের ওয়েবসাইট তৈরী করতে পারবেন।",
+		slug: "css",
+		thumbnail:
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/css_muqd8p.png",
+		status: "upcoming",
+		themeColor: "#25a1e1",
+		modules: [
+			{
+				title: "কোর্স পরিচিতি",
+				lessons: [
+					{ title: "CSS যেভাবে কাজ করে", type: "video" },
+					{ title: "আমরা যা শিখবো", type: "video" },
+					{ title: "প্রয়োজনীয় টুলস গুলো", type: "video" },
+				],
+			},
+			{
+				title: "CSS সিনট্যাক্স",
+				lessons: [
+					{ title: "পরিচিতি", type: "video" },
+					{ title: "সিলেক্টর", type: "video" },
+					{ title: "কম্বিনেটরস", type: "video" },
+				],
+			},
+			{
+				title: "অত্যাবশ্যকীয়",
+				lessons: [
+					{ title: "স্টাইলশিট", type: "video" },
+					{ title: "রং", type: "video" },
+					{ title: "লেখা ফরম্যাটিং", type: "video" },
+					{ title: "ফন্ট", type: "video" },
+					{ title: "ছবি", type: "video" },
+					{ title: "সাইজিং ও স্পেসিং", type: "video" },
+					{ title: "পরিমাপের একক", type: "video" },
+					{ title: "দৃশ্যমানতা", type: "video" },
+					{ title: "নিয়মের অগ্রগণ্যতা", type: "video" },
+				],
+			},
+			{
+				title: "অন্যান্য",
+				lessons: [
+					{ title: "আইকন", type: "video" },
+					{ title: "স্যুডো ক্লাস ও স্যুডো ইলিমেন্ট", type: "video" },
+					{ title: "পজিশনিং", type: "video" },
+					{ title: "ট্রান্সফর্ম ও ট্রানজিশন", type: "video" },
+					{ title: "এ্যানিমেশন", type: "video" },
+				],
+			},
+			{
+				title: "লেআউট ডিজাইন",
+				lessons: [
+					{ title: "ফ্লেক্সবক্স", type: "video" },
+					{ title: "গ্রিড", type: "video" },
+				],
+			},
+			{
+				title: "CSS রেসপন্সিভ",
+				lessons: [{ title: "মিডিয়া কুয়েরি", type: "video" }],
+			},
+		],
+		outcomes: [
+			"ডিজাইন ও এ্যানিমেশন",
+			"রেসপন্সিভ ওয়েবসাইট তৈরী",
+			"নিজের একটি পোর্টফোলিও সাইট",
+		],
+	},
 ];

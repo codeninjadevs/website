@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function CourseCard({ title, slug, thumbnail, status }) {
 	return (
 		<>
-			<div className="shadow rounded-lg p-3" key={slug}>
+			<div className="shadow border-gray-200 rounded-lg p-3" key={slug}>
 				<Link href={"/course/" + slug}>
 					<a>
 						<img src={thumbnail} alt={title} className="rounded" />

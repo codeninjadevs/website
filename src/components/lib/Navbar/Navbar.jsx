@@ -30,7 +30,7 @@ export default function Navbar() {
 					<div className="hidden sm:block sm:ml-6">
 						<div className="flex items-center">
 							<Link href="/courses">
-								<a className="text-gray-900 text-sm font-semibold">কোর্সগুলো</a>
+								<a className="text-gray-900 text-sm font-semibold">কোর্সসমূহ</a>
 							</Link>
 							<button
 								className="bg-gray-900 text-white px-4 py-2 pb-1 ml-5 rounded-md text-sm font-medium hover:text-white focus:outline-none"
