@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row, Form, Input, Select, Modal, Button, Drawer } from "antd";
 
 const { Option } = Select;
@@ -7,8 +7,13 @@ export default function LessonDrawer({
 	lessonModalVisible,
 	setLessonModalVisible,
 	handleSubmit,
+	editedLesson,
 }) {
 	const [form] = Form.useForm();
+
+	useEffect(() => {
+		if (editedLesson) form.setFieldsValue(editedLesson);
+	}, [editedLesson]);
 
 	return (
 		<Drawer
@@ -32,8 +37,12 @@ export default function LessonDrawer({
 					</Button>
 					<Button
 						onClick={() => {
-							handleSubmit(form.getFieldsValue());
+							handleSubmit({
+								...form.getFieldsValue(),
+								_id: editedLesson?._id,
+							});
 							setLessonModalVisible(false);
+							form.resetFields();
 						}}
 						type="primary"
 					>
@@ -66,19 +75,7 @@ export default function LessonDrawer({
 					</Col>
 				</Row>
 				<Row gutter={16}>
-					<Col span={12}>
-						<Form.Item
-							name="module"
-							label="Module"
-							rules={[{ required: true, message: "Please choose the module" }]}
-						>
-							<Select placeholder="Select a module">
-								<Option value="web-development">Web Development</Option>
-								<Option value="data-science">Data Science</Option>
-							</Select>
-						</Form.Item>
-					</Col>
-					<Col span={12}>
+					<Col span={24}>
 						<Form.Item
 							name="type"
 							label="Type"
@@ -93,16 +90,7 @@ export default function LessonDrawer({
 				</Row>
 				<Row>
 					<Col span={24}>
-						<Form.Item
-							name="overview"
-							label="Overview"
-							rules={[
-								{
-									required: true,
-									message: "please enter overview",
-								},
-							]}
-						>
+						<Form.Item name="overview" label="Overview">
 							<Input.TextArea rows={4} placeholder="please enter overview" />
 						</Form.Item>
 					</Col>

@@ -1,5 +1,4 @@
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Input, Row, Select, Upload } from "antd";
+import { Col, Form, Input, Row, Select } from "antd";
 import React from "react";
 
 const { Option } = Select;
@@ -16,7 +15,7 @@ export default function Basic() {
 	};
 
 	return (
-		<div className="bg-white p-5 pb-0">
+		<>
 			<Row gutter={16}>
 				<Col span={24}>
 					<Form.Item
@@ -36,14 +35,11 @@ export default function Basic() {
 						rules={[
 							{
 								required: true,
-								message: "please enter url description",
+								message: "please enter course description",
 							},
 						]}
 					>
-						<Input.TextArea
-							rows={4}
-							placeholder="please enter url description"
-						/>
+						<Input.TextArea rows={4} placeholder="please enter description" />
 					</Form.Item>
 				</Col>
 			</Row>
@@ -67,14 +63,24 @@ export default function Basic() {
 						rules={[{ required: true, message: "Please choose the status" }]}
 					>
 						<Select placeholder="Select the status">
+							<Option value="published">Publish</Option>
 							<Option value="draft">Draft</Option>
-							<Option value="publish">Publish</Option>
+							<Option value="upcoming">Upcoming</Option>
 						</Select>
 					</Form.Item>
 				</Col>
 			</Row>
-			<Row>
-				<Col span={24}>
+			<Row gutter={16}>
+				<Col span={12}>
+					<Form.Item
+						name="themeColor"
+						label="Theme Color"
+						rules={[{ required: true, message: "Please enter theme color" }]}
+					>
+						<Input placeholder="Please enter course theme color" />
+					</Form.Item>
+				</Col>
+				{/* <Col span={12}>
 					<Form.Item
 						name="thumbnail"
 						label="Thumbnail"
@@ -92,8 +98,15 @@ export default function Basic() {
 							</Button>
 						</Upload>
 					</Form.Item>
+				</Col> */}
+			</Row>
+			<Row>
+				<Col span={24}>
+					<Form.Item name="outcome" label="Outcome">
+						<Input.TextArea rows={4} placeholder="please enter outcome" />
+					</Form.Item>
 				</Col>
 			</Row>
-		</div>
+		</>
 	);
 }

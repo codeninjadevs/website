@@ -1,3 +1,4 @@
+import courseData from "data/courses";
 import React from "react";
 import CourseCard from "../components/lib/CourseCard";
 import { getCourses } from "./api/courses";
@@ -21,7 +22,10 @@ export default function Courses({ courses }) {
 }
 
 export async function getServerSideProps() {
-	const courses = getCourses();
-
-	return { props: { courses } };
+	const courses = (
+		await getCourses({
+			filter: { status: { $ne: "draft" } },
+		})
+	)?.sort((a, b) => (a.priority < b.priority ? 1 : -1));
+	return { props: { courses: JSON.parse(JSON.stringify(courses)) } };
 }

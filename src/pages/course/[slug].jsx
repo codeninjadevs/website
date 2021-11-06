@@ -1,8 +1,6 @@
 import { Collapse, List, Skeleton } from "antd";
-import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
-import accordionData from "../../data/accordionData";
+import React from "react";
 import { getCourseBySlug } from "../api/courses/[slug]";
 
 const { Panel } = Collapse;
@@ -83,9 +81,9 @@ export default function CourseDetail({ course }) {
 										এই কোর্স থেকে যা শিখতে পারবেন
 									</h3>
 									{course ? (
-										<ul className="list-disc ml-6 mt-2">
-											{course.outcomes.map((outcome) => (
-												<li>{outcome}</li>
+										<ul key={course._id} className="list-disc ml-6 mt-2">
+											{course.outcomes?.map((outcome, idx) => (
+												<li key={idx}>{outcome}</li>
 											))}
 										</ul>
 									) : (
@@ -107,7 +105,6 @@ export default function CourseDetail({ course }) {
 }
 
 export async function getServerSideProps({ query }) {
-	const course = getCourseBySlug(query.slug);
-
-	return { props: { course } };
+	const course = await getCourseBySlug(query.slug);
+	return { props: { course: JSON.parse(JSON.stringify(course)) } };
 }

@@ -1,104 +1,220 @@
-import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
-import { Button, Col, List, Row } from "antd";
+import {
+	DeleteOutlined,
+	EditOutlined,
+	PlusOutlined,
+	HighlightOutlined,
+} from "@ant-design/icons";
+import {
+	createOrUpdateLesson,
+	createOrUpdateModule,
+	deleteLesson,
+	deleteModule,
+} from "actions/course";
+import { Button, Col, List, Popconfirm, Row, Spin } from "antd";
+import { outlinedSpinner } from "components/lib/Spinners";
 import React, { useState } from "react";
-import accordionData from "../../../../data/accordionData";
-import { handleDelete } from "../actions/new";
 import LessonDrawer from "../LessonDrawer";
 import ModuleDrawer from "../ModuleDrawer";
 
-export default function Modules() {
-	const [modules, setModules] = useState(accordionData);
+export default function Modules({ modules, refreshData, courseId }) {
 	const [currentModule, setCurrentModule] = useState(0);
+	const [editedModule, setEditedModule] = useState();
+	const [editedLesson, setEditedLesson] = useState();
 	const [lessonModalVisible, setLessonModalVisible] = useState(false);
 	const [moduleModalVisible, setModuleModalVisible] = useState(false);
 
+	const addModule = async (values) => {
+		values.course = courseId;
+		const tempModule = await createOrUpdateModule(values);
+
+		if (tempModule) {
+			setEditedModule();
+			refreshData();
+		}
+	};
+
+	const handleEditModule = async (moduleId) => {
+		setEditedModule(modules.find((module) => module._id === moduleId));
+		setModuleModalVisible(true);
+	};
+
+	const handleDeleteModule = async (moduleId) => {
+		let res = await deleteModule(moduleId);
+		if (res) refreshData();
+	};
+
+	const addLesson = async (values) => {
+		values.module = modules[currentModule]?._id;
+		const tempLesson = await createOrUpdateLesson(values);
+
+		if (tempLesson) {
+			setEditedLesson();
+			refreshData();
+		}
+	};
+
+	const handleEditLesson = async (lessonId) => {
+		setEditedLesson(
+			modules[currentModule].lessons.find((lesson) => lesson._id === lessonId)
+		);
+		setLessonModalVisible(true);
+	};
+
+	const handleLessonDelete = async (lessonId) => {
+		let res = await deleteLesson(lessonId);
+		if (res) refreshData();
+	};
+
 	return (
 		<>
-			<div className="bg-white mt-5 p-5">
-				<Row>
-					<Col span={24}>
-						<div className="text-right mb-3">
-							<Button
-								icon={<PlusOutlined />}
-								onClick={() => setModuleModalVisible(true)}
-							>
-								Add Module
-							</Button>
-							<Button
-								icon={<PlusOutlined />}
-								style={{ marginLeft: 5 }}
-								onClick={() => setLessonModalVisible(true)}
-							>
-								Add Lesson
-							</Button>
-						</div>
-
-						{modules.length ? (
-							<Row gutter={20}>
-								<Col span={8}>
-									{[1, 2, 3, 4, 5].map((item, idx) => (
-										<div
-											key={idx}
-											className="flex justify-between items-center border border-gray-400 rounded cursor-pointer my-2 p-3"
-											style={
-												idx === currentModule
-													? {
-															background: "#1890ff",
-															color: "white",
-															border: "1px solid #1890ff",
-													  }
-													: null
-											}
-											onClick={() => setCurrentModule(idx)}
-										>
-											<span>Module {item}</span>
-											<DeleteOutlined />
+			<div className="bg-white mt-5 p-5 rounded">
+				{modules ? (
+					<Row>
+						<Col span={24}>
+							{modules?.length ? (
+								<Row gutter={20}>
+									<Col span={8}>
+										<div className="flex flex-col justify-between h-full">
+											<div>
+												{modules.map((module, idx) => (
+													<div
+														key={module._id}
+														className="flex justify-between items-center border border-gray-400 rounded cursor-pointer mb-2"
+														style={
+															idx === currentModule
+																? {
+																		background: "#1890ff",
+																		color: "white",
+																		border: "1px solid #1890ff",
+																  }
+																: null
+														}
+													>
+														<div
+															className="flex-1 h-full p-3 flex items-center"
+															onClick={() => setCurrentModule(idx)}
+														>
+															{module.title}
+															{module.status === "draft" ? (
+																<HighlightOutlined className="ml-1.5" />
+															) : null}
+														</div>
+														<div className="p-3">
+															<EditOutlined
+																onClick={() => handleEditModule(module._id)}
+															/>
+															<Popconfirm
+																title="Are you sure to delete this module?"
+																onConfirm={() => handleDeleteModule(module._id)}
+																okText="Yes"
+																cancelText="No"
+															>
+																<DeleteOutlined className="ml-3" />
+															</Popconfirm>
+														</div>
+													</div>
+												))}
+											</div>
+											<Button
+												icon={<PlusOutlined />}
+												block
+												size="large"
+												className="rounded mt-3"
+												onClick={() => setModuleModalVisible(true)}
+											>
+												Add Module
+											</Button>
 										</div>
-									))}
-								</Col>
-								<Col span={16}>
-									<List
-										size="small"
-										dataSource={accordionData[0].contents}
-										renderItem={(item) => (
-											<List.Item style={{ paddingLeft: 6 }}>
-												<div className="flex items-center justify-between w-full">
-													<div>
-														<span className="mr-2 text-lg">
-															{item.type === "video" ? (
-																<i className="fas fa-play-circle"></i>
-															) : (
-																<i className="far fa-file-alt ml-0.5"></i>
-															)}
-														</span>
-														{item.title}
+									</Col>
+									<Col span={16}>
+										<Button
+											icon={<PlusOutlined />}
+											className="rounded block ml-auto mb-3.5"
+											onClick={() => setLessonModalVisible(true)}
+										>
+											Add Lesson
+										</Button>
+										<List
+											size="small"
+											dataSource={modules[currentModule].lessons}
+											renderItem={(lesson) => (
+												<List.Item style={{ paddingLeft: 6 }}>
+													<div className="flex items-center justify-between w-full">
+														<div className="flex items-center">
+															<span className="mr-2 text-lg">
+																{lesson.type === "video" ? (
+																	<i className="fas fa-play-circle"></i>
+																) : (
+																	<i className="far fa-file-alt ml-0.5"></i>
+																)}
+															</span>
+															{lesson.title}
+															{lesson.status === "draft" ? (
+																<HighlightOutlined className="ml-1.5" />
+															) : null}
+														</div>
+														<div>
+															<EditOutlined
+																className="cursor-pointer"
+																onClick={() => handleEditLesson(lesson._id)}
+															/>
+															<Popconfirm
+																title="Are you sure to delete this module?"
+																placement="left"
+																onConfirm={() => handleLessonDelete(lesson._id)}
+																okText="Yes"
+																cancelText="No"
+															>
+																<DeleteOutlined className="cursor-pointer ml-4" />
+															</Popconfirm>
+														</div>
 													</div>
-													<div>
-														<EditOutlined
-															className="cursor-pointer"
-															onClick={() => {}}
-														/>
-														<DeleteOutlined
-															className="cursor-pointer ml-4"
-															onClick={handleDelete}
-														/>
-													</div>
-												</div>
-											</List.Item>
-										)}
-									/>
-								</Col>
-							</Row>
-						) : (
-							<p className="text-center mt-10">
-								No module added on this course
-							</p>
-						)}
-					</Col>
-				</Row>
+												</List.Item>
+											)}
+										/>
+									</Col>
+								</Row>
+							) : (
+								<div className="text-center py-10">
+									<p>No module added on this course</p>
+									<Button
+										type="primary"
+										icon={<PlusOutlined />}
+										className="mt-2"
+										onClick={() => setModuleModalVisible(true)}
+									>
+										Add Module
+									</Button>
+								</div>
+							)}
+						</Col>
+					</Row>
+				) : (
+					<div
+						className="flex justify-center items-center"
+						style={{ minHeight: 250 }}
+					>
+						<Spin indicator={outlinedSpinner} />
+					</div>
+				)}
 			</div>
-			<LessonDrawer {...{ lessonModalVisible, setLessonModalVisible }} />
-			<ModuleDrawer {...{ moduleModalVisible, setModuleModalVisible }} />
+			{/* TODO: rename the state */}
+			<LessonDrawer
+				{...{
+					lessonModalVisible,
+					setLessonModalVisible,
+					handleSubmit: addLesson,
+					editedLesson,
+				}}
+			/>
+			<ModuleDrawer
+				{...{
+					moduleModalVisible,
+					setModuleModalVisible,
+					handleSubmit: addModule,
+					editedModule,
+				}}
+			/>
 		</>
 	);
 }

@@ -40,7 +40,7 @@ export default function NavbarLessons() {
 							<div className="w-0.5 h-8 bg-gray-600 -mt-0.5 mx-4"></div>
 							<div>{course?.title}</div>
 						</div>
-						<div className="flex items-center">
+						{/* <div className="flex items-center">
 							<Progress
 								type="circle"
 								strokeWidth={4}
@@ -48,7 +48,7 @@ export default function NavbarLessons() {
 								percent={progressPercent}
 							/>
 							<div className="ml-2">আপনার অগ্রগতি</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</nav>

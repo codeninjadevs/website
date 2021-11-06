@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { Collapse, List, Tabs } from "antd";
 import { CaretRightOutlined } from "@ant-design/icons";
+import { Collapse, List, Tabs } from "antd";
+import React, { useEffect, useState } from "react";
 import EmbedYoutube from "../../components/lib/EmbedYoutube";
-import accordionData from "../../data/accordionData";
+import { getCourseBySlug } from "../api/courses/[slug]";
 
 const { Panel } = Collapse;
 const { TabPane } = Tabs;
 
-export default function Lessons() {
-	const [course, setCourse] = useState({});
-	const router = useRouter();
-	const { slug } = router.query;
+export default function Lessons({ course }) {
+	const [activeLesson, setActiveLesson] = useState();
+
+	useEffect(() => {
+		setActiveLesson(course?.modules[0].lessons[0]);
+	}, []);
+
+	const handleLessonSwitch = (moduleId, lessonId) => {
+		const module = course.modules.find((module) => module._id === moduleId);
+		const lesson = module.lessons.find((lesson) => lesson._id === lessonId);
+		setActiveLesson(lesson);
+	};
 
 	return (
 		<div className="lessons-page">
 			<div className="grid grid-cols-11 gap-5 px-5" style={{ paddingTop: 85 }}>
 				<div className="col-span-8">
 					<div className="overflow-hidden">
-						<EmbedYoutube embedId="W6NZfCO5SIk" />
+						<EmbedYoutube url={activeLesson?.url} />
 					</div>
 				</div>
 				<div className="col-span-3 border border-solid border-gray-200 course-content">
@@ -33,22 +40,40 @@ export default function Lessons() {
 						)}
 						className="site-collapse-custom-collapse"
 					>
-						{accordionData.map((item, idx) => (
-							<Panel header={item.header} key={idx + 1}>
+						{course.modules.map((module, idx) => (
+							<Panel header={module.title} key={idx + 1}>
 								<List
 									size="small"
-									dataSource={item.contents}
-									renderItem={(item) => (
-										<List.Item style={{ paddingLeft: 6 }}>
-											<div className="flex items-center">
-												<span className="mr-2 text-lg">
-													{item.type === "video" ? (
+									dataSource={module.lessons}
+									renderItem={(lesson) => (
+										<List.Item
+											className={
+												activeLesson?._id === lesson._id
+													? "bg-blue-500 text-white rounded"
+													: null
+											}
+										>
+											<div
+												className="flex items-center cursor-pointer w-full"
+												style={{
+													fontWeight:
+														activeLesson?._id === lesson._id ? 600 : null,
+												}}
+												onClick={() =>
+													handleLessonSwitch(module._id, lesson._id)
+												}
+											>
+												<span
+													className="mr-2 text-lg"
+													style={{ lineHeight: "19px" }}
+												>
+													{lesson.type === "video" ? (
 														<i className="fas fa-play-circle"></i>
 													) : (
 														<i className="far fa-file-alt ml-0.5"></i>
 													)}
 												</span>
-												{item.title}
+												{lesson.title}
 											</div>
 										</List.Item>
 									)}
@@ -58,7 +83,7 @@ export default function Lessons() {
 					</Collapse>
 				</div>
 			</div>
-			<div className="grid grid-cols-11 gap-5 px-5 pt-5 pb-32">
+			{/* <div className="grid grid-cols-11 gap-5 px-5 pt-5 pb-32">
 				<div className="col-span-8">
 					<Tabs
 						defaultActiveKey="overview"
@@ -76,36 +101,37 @@ export default function Lessons() {
 						</TabPane>
 					</Tabs>
 				</div>
-			</div>
+			</div> */}
+
 			<style>{`
-		nav.primary {
-			display: none;
-		}
+				nav.primary {
+					display: none;
+				}
 
-		.lessons-page [data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
-		.site-collapse-custom-collapse .site-collapse-custom-panel {
-			overflow: hidden;
-			background: white;
-			border: 0px;
-			border-radius: 2px;
-		}
+				.lessons-page [data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
+				.site-collapse-custom-collapse .site-collapse-custom-panel {
+					overflow: hidden;
+					background: white;
+					border: 0px;
+					border-radius: 2px;
+				}
 
-		.lessons-page .ant-collapse-item {
-			background: white !important;
-		}
-		
-		.lessons-page .ant-tabs-tab-btn {
-			color: black !important;
-		}
-		
-		.lessons-page .ant-tabs-tab-btn:hover {
-			color: black !important;
-		}
-		
-		.lessons-page .ant-tabs-ink-bar {
-			background: black !important;
-		}
-	`}</style>
+				.lessons-page .ant-collapse-item {
+					background: white !important;
+				}
+				
+				.lessons-page .ant-tabs-tab-btn {
+					color: black !important;
+				}
+				
+				.lessons-page .ant-tabs-tab-btn:hover {
+					color: black !important;
+				}
+				
+				.lessons-page .ant-tabs-ink-bar {
+					background: black !important;
+				}
+			`}</style>
 
 			<style jsx>{`
 				.course-content {
@@ -115,4 +141,10 @@ export default function Lessons() {
 			`}</style>
 		</div>
 	);
+}
+
+export async function getServerSideProps({ query }) {
+	const course = await getCourseBySlug(query.slug);
+
+	return { props: { course: JSON.parse(JSON.stringify(course)) } };
 }

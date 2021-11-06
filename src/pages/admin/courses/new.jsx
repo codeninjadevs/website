@@ -1,53 +1,39 @@
-import { Form, Steps } from "antd";
-import React, { useState } from "react";
-import Basic from "../../../components/Administrator/courses/new/Basic";
-import Modules from "../../../components/Administrator/courses/new/Modules";
-import Outcome from "../../../components/Administrator/courses/new/Outcome";
-import StepController from "../../../components/Administrator/courses/new/StepController";
-
-const { Step } = Steps;
+import { createOrUpdateCourse } from "actions/course";
+import { Button, Form } from "antd";
+import Basic from "components/Administrator/courses/new/Basic";
+import { useRouter } from "next/router";
+import React from "react";
 
 export default function New() {
-	const [currentStep, setCurrentStep] = useState(0);
 	const [form] = Form.useForm();
+	const router = useRouter();
 
-	const next = () => setCurrentStep(currentStep + 1);
-	const prev = () => setCurrentStep(currentStep - 1);
-	const handleFormSubmit = () => {
+	const handleFormSubmit = async () => {
 		const values = form.getFieldsValue(true);
-		console.log("🚀 ~ file:  ~ values", values);
+		values.thumbnail =
+			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1635058789/thumbnail-placeholder_t3pryr.jpg";
+		values.outcomes = values.outcome.split("\n");
+		const newCourse = await createOrUpdateCourse(values);
+
+		if (newCourse) router.push("/admin/courses/" + newCourse.slug);
 	};
 
 	return (
-		<div className="pt-5 course-new">
-			<Steps size="small" current={currentStep}>
-				<Step title="Basic" />
-				<Step title="Modules" />
-				<Step title="Outcome" />
-			</Steps>
+		<div className="pt-6 mt-0.5 course-new">
 			<Form
 				layout="vertical"
 				form={form}
 				hideRequiredMark
-				className="my-5"
+				className="mb-5"
 				onFinish={handleFormSubmit}
 			>
-				{currentStep === 0 ? (
+				<div className="p-5 pb-0 bg-white">
 					<Basic />
-				) : currentStep === 1 ? (
-					<Modules />
-				) : (
-					<Outcome />
-				)}
-
-				<StepController {...{ currentStep, prev, next }} />
+				</div>
+				<Button type="primary" htmlType="submit" className="block ml-auto mt-3">
+					Create
+				</Button>
 			</Form>
-
-			<style jsx global>{`
-				.course-new .ant-steps-item-title::after {
-					background: #cac9c9 !important;
-				}
-			`}</style>
 		</div>
 	);
 }

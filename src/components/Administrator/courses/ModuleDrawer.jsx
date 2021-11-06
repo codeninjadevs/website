@@ -1,18 +1,23 @@
-import React from "react";
-import { Col, Row, Form, Input, Select, Modal, Button, Drawer } from "antd";
+import { Button, Col, Drawer, Form, Input, Row, Select } from "antd";
+import React, { useEffect } from "react";
 
 const { Option } = Select;
 
-export default function LessonDrawer({
+export default function ModuleDrawer({
 	moduleModalVisible,
 	setModuleModalVisible,
 	handleSubmit,
+	editedModule,
 }) {
 	const [form] = Form.useForm();
 
+	useEffect(() => {
+		if (editedModule) form.setFieldsValue(editedModule);
+	}, [editedModule]);
+
 	return (
 		<Drawer
-			title="Add a Module"
+			title={`${editedModule ? "Update" : "Add"} a Module`}
 			width={500}
 			onClose={() => setModuleModalVisible(false)}
 			visible={moduleModalVisible}
@@ -32,8 +37,12 @@ export default function LessonDrawer({
 					</Button>
 					<Button
 						onClick={() => {
-							handleSubmit(form.getFieldsValue());
+							handleSubmit({
+								...form.getFieldsValue(),
+								_id: editedModule?._id,
+							});
 							setModuleModalVisible(false);
+							form.resetFields();
 						}}
 						type="primary"
 					>
@@ -48,9 +57,9 @@ export default function LessonDrawer({
 						<Form.Item
 							name="title"
 							label="Title"
-							rules={[{ required: true, message: "Please enter course title" }]}
+							rules={[{ required: true, message: "Please enter module title" }]}
 						>
-							<Input placeholder="Please enter course title" />
+							<Input placeholder="Please enter module title" />
 						</Form.Item>
 					</Col>
 				</Row>

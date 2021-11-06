@@ -6,58 +6,158 @@ let courseData = [
 		slug: "html",
 		thumbnail:
 			"https://res.cloudinary.com/shakilahmmeed/image/upload/v1632603754/html_zwario.jpg",
-		status: "upcoming",
+		status: "published",
 		themeColor: "#ef6026",
 		modules: [
 			{
+				id: "html1",
 				title: "কোর্স পরিচিতি",
 				lessons: [
-					{ title: "ওয়েব যেভাবে কাজ করে", type: "video" },
-					{ title: "আমরা যা শিখবো", type: "video" },
-					{ title: "প্রয়োজনীয় টুলস গুলো", type: "video" },
+					{
+						id: "html-1tfvzzc1",
+						title: "ওয়েব যেভাবে কাজ করে",
+						type: "video",
+						content: "https://www.youtube.com/embed/4ukb9m90QGY",
+					},
+					{
+						id: "html-12gfzvzcx",
+						title: "আমরা যা শিখবো",
+						type: "video",
+						content: "https://www.youtube.com/embed/Y1BlT4_c_SU",
+					},
+					{
+						id: "html-13sgbdfvc",
+						title: "প্রয়োজনীয় টুলস গুলো",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
 				],
 			},
 			{
+				id: "html2",
 				title: "HTML সিনট্যাক্স",
 				lessons: [
-					{ title: "ট্যাগ", type: "video" },
-					{ title: "এ্যাট্রিবিউট", type: "video" },
-					{ title: "ইলিমেন্ট", type: "video" },
-					{ title: "কমেন্ট", type: "video" },
-					{ title: "বিশেষ চিহ্ন", type: "video" },
+					{
+						id: "html-13bafvs",
+						title: "ট্যাগ",
+						type: "video",
+						content: "https://www.youtube.com/embed/IJWcX2EDAKg",
+					},
+					{
+						id: "html-13dfzxvc",
+						title: "এ্যাট্রিবিউট",
+						type: "video",
+						content: "https://www.youtube.com/embed/XxZPrn1VFTc",
+					},
+					{
+						id: "html-13yhgfzv",
+						title: "ইলিমেন্ট",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+					{
+						id: "html-1fdgzzxv3",
+						title: "কমেন্ট",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+					{
+						id: "html-1dgavz3",
+						title: "বিশেষ চিহ্ন",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
 				],
 			},
 			{
+				id: "html3",
 				title: "ফরম্যাটিং",
 				lessons: [
-					{ title: "হেডিং ও প্যারাগ্রাফ", type: "video" },
 					{
+						id: "html-13fdxvc",
+						title: "হেডিং ও প্যারাগ্রাফ",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+					{
+						id: "html-1nbgfvs3",
 						title:
 							"বোল্ড, স্ট্রং, ইটালিক, আন্ডারলাইন, স্ট্রাইক, সাবস্ক্রিপ্ট, সুপারস্ক্রিপ্ট",
 						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
 					},
-					{ title: "নতুন লাইন", type: "video" },
+					{
+						id: "html-13hgfds",
+						title: "নতুন লাইন",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
 				],
 			},
 			{
+				id: "html4",
 				title: "অত্যাবশ্যকীয়",
 				lessons: [
-					{ title: "লিংক", type: "video" },
-					{ title: "ছবি", type: "video" },
-					{ title: "লিস্ট", type: "video" },
-					{ title: "টেবিল", type: "video" },
-					{ title: "ফর্ম", type: "video" },
+					{
+						id: "html-hdzx",
+						title: "লিংক",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+					{
+						id: "html-hdfx",
+						title: "ছবি",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+					{
+						id: "html-ddaxxx13",
+						title: "লিস্ট",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+					{
+						id: "html-daff13",
+						title: "টেবিল",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+					{
+						id: "html-dfafda",
+						title: "ফর্ম",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
 				],
 			},
 			{
+				id: "html5",
 				title: "সিম্যান্টিক HTML",
-				lessons: [{ title: "পরিচিতি", type: "video" }],
+				lessons: [
+					{
+						id: "html-dasdf",
+						title: "পরিচিতি",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+				],
 			},
 			{
+				id: "html6",
 				title: "মিডিয়া",
 				lessons: [
-					{ title: "অডিও", type: "video" },
-					{ title: "ভিডিও", type: "video" },
+					{
+						id: "html-dfasf",
+						title: "অডিও",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
+					{
+						id: "html-13",
+						title: "ভিডিও",
+						type: "video",
+						content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+					},
 				],
 			},
 		],

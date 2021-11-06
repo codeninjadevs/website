@@ -2,9 +2,21 @@ let accordionData = [
 	{
 		header: "কোর্স পরিচিতি",
 		contents: [
-			{ title: "ওয়েব যেভাবে কাজ করে", type: "video" },
-			{ title: "আমরা যা যা শিখবো", type: "video" },
-			{ title: "প্রয়োজনীয় টুলস গুলো", type: "text" },
+			{
+				title: "ওয়েব যেভাবে কাজ করে",
+				type: "video",
+				content: "https://www.youtube.com/embed/SwLdKeC8scE",
+			},
+			{
+				title: "আমরা যা যা শিখবো",
+				type: "video",
+				content: "https://www.youtube.com/embed/hu-q2zYwEYs",
+			},
+			{
+				title: "প্রয়োজনীয় টুলস গুলো",
+				type: "text",
+				content: "https://www.youtube-nocookie.com/embed/a9VZEgbHxrg",
+			},
 		],
 	},
 	{
