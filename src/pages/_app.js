@@ -7,6 +7,7 @@ import AdminLayout from "../components/lib/Layouts/AdminLayout";
 import "antd/dist/antd.css";
 import "../styles/globals.css";
 import { useEffect, useRef, useState } from "react";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
@@ -51,6 +52,8 @@ function MyApp({ Component, pageProps }) {
 					<Component {...pageProps} />
 				</SiteLayout>
 			)}
+
+			<GoogleAnalytics trackPageViews />
 		</Provider>
 	);
 }
