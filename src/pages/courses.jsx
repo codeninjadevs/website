@@ -27,5 +27,5 @@ export async function getServerSideProps() {
 			filter: { status: { $ne: "draft" } },
 		})
 	)?.sort((a, b) => (a.priority < b.priority ? 1 : -1));
-	return { props: { courses:JSON.parse(JSON.stringify(courses))}};
+	return { props: { courses: JSON.parse(JSON.stringify(courses)) } };
 }
